@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView amountTextView;
     private TextView percentTextView;
-    private TextView tipTextView;
+
     private TextView totalTextView;
 
     private double billAmount = 0.0;
@@ -34,8 +34,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.amountTextView);
         percentTextView =
                 findViewById(R.id.percentTextView);
-        tipTextView =
-                findViewById(R.id.tipTextView);
+
         totalTextView =
                 findViewById(R.id.totalTextView);
 
@@ -45,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.amountEditText);
 
         SeekBar percentSeekBar =
-                findViewById(R.id.percentSeekBar);
+                findViewById(R.id.gasolinaSeekBar);
 
 
         percentSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -95,19 +94,22 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
     }
 
     private void calcular (){
         double tip = billAmount * percent;
         double total = billAmount + tip;
-        tipTextView.setText(currencyFormat.format(tip));
+
         totalTextView.setText(currencyFormat.format(total));
     }
 
     private void zerarTudo (){
         billAmount = 0;
         amountTextView.setText(currencyFormat.format(billAmount));
-        tipTextView.setText(currencyFormat.format(billAmount * percent));
+
+
         totalTextView.setText(currencyFormat.format(billAmount * percent + billAmount));
     }
 }
